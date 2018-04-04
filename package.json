@@ -1,0 +1,21 @@
+{
+  "name": "igdb-proxy",
+  "version": "0.0.0",
+  "description": "",
+  "author": "ckatzorke <ckatzorke@gmail.com>",
+  "main": "functions/__main__.js",
+  "dependencies": {
+    "igdb-api-node": "^3.1.3"
+  },
+  "private": true,
+  "stdlib": {
+    "build": "faaslang",
+    "name": "ckatzorke/igdb-proxy",
+    "timeout": 10000,
+    "publish": true,
+    "personalize": {
+      "keys": [],
+      "user": []
+    }
+  }
+}
