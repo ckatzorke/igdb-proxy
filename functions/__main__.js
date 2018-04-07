@@ -8,7 +8,7 @@ module.exports = async (search, context) => {
   let result = null;
   if (search.trim() !== '') {
     result = await client.games({
-      fields: '*',
+      fields: ['id', 'name', 'url', 'summary', 'time_to_beat', 'cover', 'screenshots', 'websites'],
       limit: 5,
       offset: 0,
       search: search
