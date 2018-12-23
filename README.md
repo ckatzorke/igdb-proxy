@@ -1,4 +1,4 @@
 # igdb-proxy
 
-A simple faas endpoint for specific igdb operations
+A simple proxy specific igdb operations.
 
