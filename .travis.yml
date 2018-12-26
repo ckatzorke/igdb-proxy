@@ -5,13 +5,12 @@ cache:
   directories:
     - "node_modules"
 deploy:
-  provider: script
-  script: npm install lib.cli -g && echo "{\"release\": {\"API_KEY\": \"$IGDB_API_KEY\"}}" > env.json && echo "ACCESS_TOKEN=$STDLIB_ACCESS_TOKEN" > ~/.librc && lib release
-  on:
-    tags: true
-deploy:
-  provider: script
-  script: npm install lib.cli -g && echo "{\"dev\": {\"API_KEY\": \"$IGDB_API_KEY\"}" > env.json && echo "ACCESS_TOKEN=$STDLIB_ACCESS_TOKEN" > ~/.librc && lib up dev
-  on:
-    branch: master
+  - provider: script
+    script: npm install lib.cli -g && echo "{\"release\": {\"API_KEY\": \"$IGDB_API_KEY\"}}" > env.json && echo "ACCESS_TOKEN=$STDLIB_ACCESS_TOKEN" > ~/.librc && lib release
+    on:
+      tags: true
+  - provider: script
+    script: npm install lib.cli -g && echo "{\"dev\": {\"API_KEY\": \"$IGDB_API_KEY\"}" > env.json && echo "ACCESS_TOKEN=$STDLIB_ACCESS_TOKEN" > ~/.librc && lib up dev
+    on:
+      branch: master
   
