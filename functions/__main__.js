@@ -1,24 +1,16 @@
-const client = require('igdb-api-node').default();
+const IgdbProxy = require('../src/igdbproxy');
 /**
- * A simple search against igdb
- * @param {string} search what are you searching
+ * A simple fetch of a game against igdb by gameName
+ * @param {string} name the name of the game
  * @returns {object}
  */
-module.exports = async (search, context) => {
+module.exports = async (game, context) => {
   let result = null;
-  if (search.trim() !== '') {
-    result = await client.games({
-      fields: [
-        'id', 'name', 'slug', 'url', 'created_at', 'updated_at', 'summary', 'first_release_date', 'release_dates', 'time_to_beat', 'cover', 'screenshots', 'videos', 'websites', 
-        'platforms.name', 'platforms.slug', 'platforms.url', 'platforms.logo', 'platforms.created_at', 'platforms.updated_at',
-        'genres.name', 'genres.slug', 'genres.url', 'genres.created_at', 'genres.updated_at'],
-      expand: ['platforms', 'genres'],
-      limit: 10,
-      offset: 0,
-      search: search
-    });
+  if (game.trim() !== '') {
+    const client = new IgdbProxy(process.env.API_KEY);
+    result = await client.getGameByName(game);
   }
   return {
-    "result": result
+    result
   };
 };

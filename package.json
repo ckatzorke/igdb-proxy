@@ -19,5 +19,14 @@
     "eslint-plugin-jest": "^22.1.2",
     "jest": "^23.6.0",
     "nock": "^10.0.4"
+  },
+  "stdlib": {
+    "build": "faaslang",
+    "name": "ckatzorke/igdb",
+    "timeout": 2000,
+    "personalize": {
+      "keys": [],
+      "user": []
+    }
   }
 }

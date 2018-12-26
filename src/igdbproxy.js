@@ -6,6 +6,14 @@ class IgdbProxy {
 
   /**
    * Constructor for IgdbProxy.
+   * Previously in v2:
+   * fields: [
+        'id', 'name', 'slug', 'url', 'created_at', 'updated_at', 'summary', 'first_release_date',
+        'release_dates', 'time_to_beat', 'cover', 'screenshots', 'videos', 'websites',
+        'platforms.name', 'platforms.slug', 'platforms.url', 'platforms.logo',
+        'platforms.created_at', 'platforms.updated_at', 'genres.name', 'genres.slug', 'genres.url',
+        'genres.created_at', 'genres.updated_at'],
+      expand: ['platforms', 'genres'],
    * @param {string} igdbApiKey the api key from idgb.com
    */
   constructor(igdbApiKey) {
@@ -19,13 +27,13 @@ class IgdbProxy {
         'Content-Type': 'text/plain'
       },
       responseType: 'json',
-      timeout: 1000
+      timeout: 2000
     });
   }
 
   async getGameByName(name) {
     const response = await this.client.post('/games', `
-            fields name,url; 
+            fields name,url,cover; 
             limit 5; 
             where name = "${name}";`);
     return response.data;

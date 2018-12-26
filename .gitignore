@@ -1,6 +1,6 @@
 # ignore nev vars for stdlib
 env.json
-
+.stdlib
 # Created by https://www.gitignore.io/api/node,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,visualstudiocode
 
