@@ -33,7 +33,7 @@ class IgdbProxy {
 
   async getGameByName(name) {
     const response = await this.client.post('/games', `
-            fields name,url,cover; 
+            fields name, url, summary, updated_at, cover.image_id, platforms.abbreviation, platforms.name, platforms.slug, genres.name; 
             limit 5; 
             where name = "${name}";`);
     return response.data;

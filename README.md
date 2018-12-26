@@ -10,7 +10,7 @@ You need to provide your api key to run the main index.js. To get one, visit htt
 API_KEY=your-api-key node index.js "Your game name"
 ```
 
-## Deploy
+## Deploy to stdlib
 
 ### DEV
 
