@@ -9,4 +9,8 @@ deploy:
     script: sh "./.travis/deploy.sh" "up dev"
     on:
       branch: master
+  - provider: script
+    script: sh "./.travis/deploy.sh" "release"
+    on:
+      tags: true
   
