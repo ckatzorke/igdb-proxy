@@ -23,7 +23,7 @@
   "stdlib": {
     "build": "faaslang",
     "name": "ckatzorke/igdb",
-    "timeout": 2000,
+    "timeout": 10000,
     "personalize": {
       "keys": [],
       "user": []

@@ -1,7 +1,7 @@
 const IgdbProxy = require('../src/igdbproxy');
 /**
  * A simple fetch of a game against igdb by gameName
- * @param {string} name the name of the game
+ * @param {string} game the name of the game
  * @returns {object}
  */
 module.exports = async (game, context) => {
