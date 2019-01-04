@@ -39,6 +39,15 @@ class IgdbProxy {
     return response.data;
   }
 
+
+  async searchGame(searchString, limit = 5) {
+    const response = await this.client.post('/search', `
+            fields name, game.summary, game.updated_at, game.cover.image_id, game.platforms.abbreviation, game.platforms.name, game.platforms.slug, game.genres.name; 
+            limit ${limit}; 
+            search "${searchString}";`);
+    return response.data;
+  }
+
 }
 
 module.exports = IgdbProxy;
