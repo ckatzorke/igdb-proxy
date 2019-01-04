@@ -27,7 +27,7 @@ class IgdbProxy {
         'Content-Type': 'text/plain'
       },
       responseType: 'json',
-      timeout: 2000
+      timeout: 10000
     });
   }
 
