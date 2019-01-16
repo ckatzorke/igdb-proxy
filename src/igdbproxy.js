@@ -45,7 +45,14 @@ class IgdbProxy {
             fields game.name, game.url, game.summary, game.updated_at, game.cover.image_id, game.platforms.abbreviation, game.platforms.name, game.platforms.slug, game.genres.name; 
             limit ${limit}; 
             search "${searchString}"; where game != null;`);
-    return response.data;
+    const result = [];
+    const igdb = response.data;
+    igdb.forEach((igdbEntry) => {
+      if (igdbEntry.game) {
+        result.push(igdbEntry.game);
+      }
+    });
+    return result;
   }
 
 }
