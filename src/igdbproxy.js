@@ -33,7 +33,7 @@ class IgdbProxy {
 
   async getGameByName(name) {
     const response = await this.client.post('/games', `
-            fields name, url, summary, updated_at, cover.image_id, platforms.abbreviation, platforms.name, platforms.slug, genres.name; 
+            fields name, url, summary, updated_at, cover.image_id, platforms.abbreviation, platforms.name, platforms.slug, genres.name, first_release_date; 
             limit 5; 
             where name = "${name}";`);
     return response.data;
@@ -42,7 +42,7 @@ class IgdbProxy {
 
   async searchGame(searchString, limit = 10) {
     const response = await this.client.post('/search', `
-            fields game.name, game.url, game.summary, game.updated_at, game.cover.image_id, game.platforms.abbreviation, game.platforms.name, game.platforms.slug, game.genres.name; 
+            fields game.name, game.url, game.summary, game.updated_at, game.cover.image_id, game.platforms.abbreviation, game.platforms.name, game.platforms.slug, game.genres.name, game.first_release_date; 
             limit ${limit}; 
             search "${searchString}"; where game != null;`);
     const result = [];
