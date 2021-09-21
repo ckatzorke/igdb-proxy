@@ -10,7 +10,7 @@
     "coverage": "jest --collectCoverageFrom=src/**.js --coverage src"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.2"
   },
   "devDependencies": {
     "eslint": "^5.10.0",
